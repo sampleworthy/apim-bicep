@@ -14,14 +14,14 @@ resource bicepapim 'Microsoft.ApiManagement/service@2019-12-01' = {
     publisherEmail: publisherEmail
     publisherName: publisherName
     notificationSenderEmail: 'jaythebiggest@gmail.com'
-    hostnameConfigurations: [
-       {
-       type: 'Proxy'
-       hostName: 'apimbicepjay.azure-api.net'
-       negotiateClientCertificate: false
-       defaultSslBinding: false
-       }
-       ]
+    //hostnameConfigurations: [
+      // {
+     // type: 'Proxy'
+    //   hostName: 'apimbicepjay.azure-api.net'
+     //  negotiateClientCertificate: false
+      // defaultSslBinding: false
+     //  }
+     //  ]
       customProperties: {
       'Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168': 'false'
       'Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11': 'false'
