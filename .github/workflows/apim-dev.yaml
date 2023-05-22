@@ -16,14 +16,17 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Install Azure Bicep CLI
+      - name: Install Bicep CLI
         run: |
-          az bicep install
-
-      - name: Validate Bicep file
+            curl -Lo bicep https://github.com/Azure/bicep/releases/latest/download/bicep-linux-x64
+            chmod +x ./bicep
+            sudo mv ./bicep /usr/local/bin/bicep
+  
+      - name: Deploy Bicep File
         run: |
-          az bicep build --file ./dev-apim.bicep
-
-      - name: Deploy Bicep file to Azure
-        run: |
-          az deployment group create --resource-group APIMTesting --template-file ./dev-apim.bicep --parameters @parameters.json
+            cd bicep
+            bicep build dev-apim.bicep
+            az deployment group create \
+              --resource-group APIMTesting \
+              --template-file dev-apim.json \
+              --parameters @parameters.json
