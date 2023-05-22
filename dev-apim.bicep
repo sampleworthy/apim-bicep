@@ -17,7 +17,7 @@ resource bicepapim 'Microsoft.ApiManagement/service@2019-12-01' = {
     hostnameConfigurations: [
        {
        type: 'Proxy'
-       hostName: 'apimbiceptest.developer.azure-api.net'
+       hostName: 'apimbicepjay.azure-api.net'
        negotiateClientCertificate: false
        defaultSslBinding: false
        }
