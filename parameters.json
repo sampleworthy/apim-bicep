@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "apimName": {
+            "value": "APIM-Testing"
+        },
+        "apimLocation": {
+            "value": "East US"
+        },
+        "publisherName": {
+            "value": "Justin Laws"
+        },
+        "publisherEmail": {
+            "value": "jlaws12@liberty.edu"
+        }
+    }
+}

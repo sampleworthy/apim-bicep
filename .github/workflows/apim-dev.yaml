@@ -1,0 +1,29 @@
+name: Deploy to Azure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Install Azure Bicep CLI
+        run: |
+          az bicep install
+
+      - name: Validate Bicep file
+        run: |
+          az bicep build --file ./dev-apim.bicep
+
+      - name: Deploy Bicep file to Azure
+        run: |
+          az deployment group create --resource-group devportal-apim-dev --template-file ./dev-apim.bicep --parameters @parameters.json
