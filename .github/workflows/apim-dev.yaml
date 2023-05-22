@@ -26,4 +26,4 @@ jobs:
 
       - name: Deploy Bicep file to Azure
         run: |
-          az deployment group create --resource-group devportal-apim-dev --template-file ./dev-apim.bicep --parameters @parameters.json
+          az deployment group create --resource-group APIMTesting --template-file ./dev-apim.bicep --parameters @parameters.json
