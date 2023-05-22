@@ -20,7 +20,7 @@ jobs:
         run: az bicep install
   
       - name: Validate Bicep file
-        run: az bicep build --file bicep/main.bicep
+        run: az bicep build --file bicep/dev-apim.bicep
       - name: Deploy Bicep file
         run: |
               az deployment group create \
